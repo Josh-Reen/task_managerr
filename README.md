@@ -34,6 +34,10 @@ npm start
 cd client
 npm start
 
+Mongodb
+    - MongoDB Compass GUI .exe
+    - Create a connection in my case task-manager with database name task-manager
+
 ## Features
 - User registration and login
 - Create, edit, and delete tasks
