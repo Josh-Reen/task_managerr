@@ -22,6 +22,10 @@ server/.env
 MONGODB_URI=mongodb://localhost:27017/task-manager
 JWT_SECRET=your_secret_key
 
+Mongodb
+    - MongoDB Compass GUI .exe
+    - Create a connection in my case task-manager with database name task-manager
+
 client/.env
 REACT_APP_API_URL=http://localhost:5000
 
@@ -33,10 +37,6 @@ npm start
 
 cd client
 npm start
-
-Mongodb
-    - MongoDB Compass GUI .exe
-    - Create a connection in my case task-manager with database name task-manager
 
 ## Features
 - User registration and login
