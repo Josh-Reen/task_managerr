@@ -16,9 +16,10 @@ npm install
 cd client
 npm install
 4. Create .env files in both server and client directories:
+    
 
 server/.env
-MONGODB_URI=your_mongodb_connection_string
+MONGODB_URI=mongodb://localhost:27017/task-manager
 JWT_SECRET=your_secret_key
 
 client/.env
@@ -39,3 +40,9 @@ npm start
 - Mark tasks as complete/incomplete
 - Persistent data storage with MongoDB
 - Protected routes with JWT authentication
+
+# Note:
+      dependencies with reference to .json files
+      .gitignore not added
+      separately running servers npm start
+      Toket retrieved right away in the terminal
