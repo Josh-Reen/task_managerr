@@ -376,4 +376,34 @@ body {
   margin-top: 5px;
 }
 
-/* Ensure the rest of the CSS remains unchanged */
+/* //////////These are for forgot pass */
+.success {
+  color: #2ecc71;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  color: #7f8c8d;
+}
+
+.auth-input {
+  padding-left: 35px;
+  width: 100%;
+}
+
+.success {
+  color: #2ecc71;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 15px;
+}

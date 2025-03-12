@@ -3,10 +3,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { 
   FaPlus, FaCheck, FaUndo, FaEdit, FaTrash, FaSignOutAlt, 
-  FaTasks, FaCheckCircle, FaTimesCircle, FaTrashAlt, FaAngleDown, FaAngleUp 
+  FaTasks, FaCheckCircle, FaTimesCircle, FaAngleDown, FaAngleUp 
 } from 'react-icons/fa';
 import '../index.css';
 
+/**
+ * Tasks component for managing user tasks
+ */
 const Tasks = () => {
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState('');
@@ -34,6 +37,10 @@ const Tasks = () => {
     return token ? { Authorization: `Bearer ${token}` } : null;
   };
 
+  /**
+   * Fetches tasks from the server
+   * @param {object} monthFilter - { month: number, year: number }
+   */
   const fetchTasks = async (monthFilter = selectedMonth) => {
     setLoading(true);
     setError('');
@@ -46,12 +53,7 @@ const Tasks = () => {
     try {
       const res = await axios.get(`${apiUrl}/api/tasks`, { headers });
       const allTasks = res.data;
-      const now = new Date();
-      const currentTasks = allTasks.filter(task => {
-        const taskDate = new Date(task.createdAt);
-        return (now - taskDate) / (1000 * 60 * 60 * 24) <= 30;
-      });
-      setTasks(monthFilter ? filterByMonth(allTasks, monthFilter) : currentTasks);
+      setTasks(filterByMonth(allTasks, monthFilter));
       updateStats(allTasks);
     } catch (err) {
       console.error('Fetch tasks error:', err.response?.data || err.message);
@@ -246,7 +248,7 @@ const Tasks = () => {
         ) : (
           <div className="task-list">
             {tasks.length === 0 ? (
-              <p>No tasks found for {selectedMonth !== null ? `${months[selectedMonth.month]} ${selectedMonth.year}` : 'current month'}.</p>
+              <p>No tasks found for {months[selectedMonth.month]} {selectedMonth.year}.</p>
             ) : (
               tasks.map((task) => (
                 <div key={task._id} className={`task-card ${task.completed ? 'completed' : ''}`}>
