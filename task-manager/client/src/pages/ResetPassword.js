@@ -4,9 +4,6 @@ import axios from 'axios';
 import { FaLock, FaKey } from 'react-icons/fa';
 import '../index.css';
 
-/**
- * ResetPassword component to set a new password using a reset token
- */
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -25,10 +22,6 @@ const ResetPassword = () => {
     }
   }, [email, token]);
 
-  /**
-   * Handles form submission to reset password
-   * @param {Event} e - Form submission event
-   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);

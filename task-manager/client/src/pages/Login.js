@@ -4,9 +4,6 @@ import axios from 'axios';
 import { FaEnvelope, FaLock, FaSignInAlt } from 'react-icons/fa';
 import '../index.css';
 
-/**
- * Login component for user authentication
- */
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,10 +12,6 @@ const Login = () => {
   const navigate = useNavigate();
   const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
-  /**
-   * Handles login form submission
-   * @param {Event} e - Form submission event
-   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -26,13 +19,11 @@ const Login = () => {
     
     try {
       const res = await axios.post(`${apiUrl}/api/auth/login`, { email, password });
-      
       if (res.data && res.data.token) {
         localStorage.setItem('token', res.data.token);
         navigate('/');
       } else {
         setError('Invalid response from server');
-        console.error('Server response missing token:', res.data);
       }
     } catch (err) {
       console.error('Login error:', err.response?.data || err.message);

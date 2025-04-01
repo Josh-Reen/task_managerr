@@ -4,9 +4,6 @@ import axios from 'axios';
 import { FaEnvelope, FaLock, FaUserPlus } from 'react-icons/fa';
 import '../index.css';
 
-/**
- * Register component for user registration
- */
 const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,10 +11,6 @@ const Register = () => {
   const navigate = useNavigate();
   const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
-  /**
-   * Handles registration form submission
-   * @param {Event} e - Form submission event
-   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');

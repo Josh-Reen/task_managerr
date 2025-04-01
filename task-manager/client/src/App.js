@@ -7,9 +7,6 @@ import ResetPassword from './pages/ResetPassword';
 import Tasks from './pages/Tasks';
 import ProtectedRoute from './components/ProtectedRoute';
 
-/**
- * Main application component with routing
- */
 function App() {
   return (
     <Router>

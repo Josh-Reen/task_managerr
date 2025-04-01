@@ -407,3 +407,10 @@ body {
   text-align: center;
   margin-bottom: 15px;
 }
+
+
+/*Addintions for archives and task completeion date*/
+.archived {
+  background-color: #f0f0f0;
+  opacity: 0.7;
+}
